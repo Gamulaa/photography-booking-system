@@ -95,9 +95,9 @@ export function AdminOverviewPage() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="w-full min-w-0 space-y-6 sm:space-y-8">
       <div>
-        <h1 className="font-serif text-3xl font-medium text-stone-900">
+        <h1 className="font-serif text-2xl font-medium text-stone-900 sm:text-3xl">
           Studio Overview
         </h1>
         <p className="mt-1 text-sm text-stone-500">
@@ -113,23 +113,25 @@ export function AdminOverviewPage() {
       )}
 
       {/* 4 Required Statistic Cards */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {statCards.map((card) => {
           const Icon = card.icon;
           return (
             <div
               key={card.label}
-              className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"
+              className="min-w-0 rounded-2xl border border-stone-200 bg-white p-4 shadow-sm sm:p-6"
             >
-              <div className="flex items-center justify-between">
-                <p className="text-xs font-semibold uppercase tracking-wider text-stone-500">
+              <div className="flex items-start justify-between gap-2">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-stone-500 sm:text-xs">
                   {card.label}
                 </p>
-                <span className={`rounded-xl p-2 ${card.accentClass}`}>
+                <span
+                  className={`shrink-0 rounded-xl p-1.5 sm:p-2 ${card.accentClass}`}
+                >
                   <Icon className="h-4 w-4" />
                 </span>
               </div>
-              <p className="mt-4 font-serif text-4xl font-semibold text-stone-900">
+              <p className="mt-3 font-serif text-3xl font-semibold text-stone-900 sm:mt-4 sm:text-4xl">
                 {loading ? "—" : card.value}
               </p>
             </div>
@@ -138,133 +140,170 @@ export function AdminOverviewPage() {
       </div>
 
       {/* Quick Links */}
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-3">
         <Link
           to="/admin/services"
-          className="flex items-center justify-between rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition-colors hover:border-stone-400"
+          className="flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-stone-400 sm:p-5"
         >
-          <div className="flex items-center gap-3.5">
-            <span className="rounded-xl bg-stone-100 p-2.5 text-stone-800">
+          <div className="flex min-w-0 items-center gap-3.5">
+            <span className="shrink-0 rounded-xl bg-stone-100 p-2.5 text-stone-800">
               <Briefcase className="h-5 w-5" />
             </span>
-            <div>
-              <p className="text-sm font-semibold text-stone-900">
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold text-stone-900">
                 Services &amp; Pricing
               </p>
-              <p className="text-xs text-stone-500">
+              <p className="truncate text-xs text-stone-500">
                 {serviceCount} photography packages
               </p>
             </div>
           </div>
-          <ArrowRight className="h-4 w-4 text-stone-400" />
+          <ArrowRight className="h-4 w-4 shrink-0 text-stone-400" />
         </Link>
 
         <Link
           to="/admin/portfolio"
-          className="flex items-center justify-between rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition-colors hover:border-stone-400"
+          className="flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-stone-400 sm:p-5"
         >
-          <div className="flex items-center gap-3.5">
-            <span className="rounded-xl bg-stone-100 p-2.5 text-stone-800">
+          <div className="flex min-w-0 items-center gap-3.5">
+            <span className="shrink-0 rounded-xl bg-stone-100 p-2.5 text-stone-800">
               <Images className="h-5 w-5" />
             </span>
-            <div>
-              <p className="text-sm font-semibold text-stone-900">
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold text-stone-900">
                 Portfolio Projects
               </p>
-              <p className="text-xs text-stone-500">
+              <p className="truncate text-xs text-stone-500">
                 {projectCount} published galleries
               </p>
             </div>
           </div>
-          <ArrowRight className="h-4 w-4 text-stone-400" />
+          <ArrowRight className="h-4 w-4 shrink-0 text-stone-400" />
         </Link>
 
         <Link
           to="/admin/business"
-          className="flex items-center justify-between rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition-colors hover:border-stone-400"
+          className="flex min-w-0 items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white p-4 shadow-sm transition-colors hover:border-stone-400 sm:p-5"
         >
-          <div className="flex items-center gap-3.5">
-            <span className="rounded-xl bg-stone-100 p-2.5 text-stone-800">
+          <div className="flex min-w-0 items-center gap-3.5">
+            <span className="shrink-0 rounded-xl bg-stone-100 p-2.5 text-stone-800">
               <Building2 className="h-5 w-5" />
             </span>
-            <div>
-              <p className="text-sm font-semibold text-stone-900">
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold text-stone-900">
                 Brand &amp; Studio Info
               </p>
-              <p className="text-xs text-stone-500">
+              <p className="truncate text-xs text-stone-500">
                 Hero image, bio &amp; phone
               </p>
             </div>
           </div>
-          <ArrowRight className="h-4 w-4 text-stone-400" />
+          <ArrowRight className="h-4 w-4 shrink-0 text-stone-400" />
         </Link>
       </div>
 
       {/* Recent Booking Requests */}
-      <div className="rounded-2xl border border-stone-200 bg-white shadow-sm">
-        <div className="flex items-center justify-between border-b border-stone-100 px-6 py-4">
-          <h2 className="font-serif text-xl font-medium text-stone-900">
+      <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+        <div className="flex flex-col gap-2 border-b border-stone-100 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <h2 className="font-serif text-lg font-medium text-stone-900 sm:text-xl">
             Recent Booking Requests
           </h2>
           <Link
             to="/admin/bookings"
-            className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline"
+            className="inline-flex w-fit items-center gap-1 text-xs font-semibold text-accent hover:underline"
           >
             Manage all bookings
-            <ArrowRight className="h-3.5 w-3.5" />
+            <ArrowRight className="h-3.5 w-3.5 shrink-0" />
           </Link>
         </div>
 
         {loading ? (
-          <div className="p-8 text-center text-sm text-stone-500">
+          <div className="p-6 text-center text-sm text-stone-500 sm:p-8">
             Loading bookings...
           </div>
         ) : recentBookings.length === 0 ? (
-          <div className="p-8 text-center text-sm text-stone-500">
+          <div className="p-6 text-center text-sm text-stone-500 sm:p-8">
             No booking requests yet. Bookings submitted from the public website
             will appear here.
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b border-stone-100 bg-stone-50/70 text-xs uppercase tracking-wider text-stone-500">
-                <tr>
-                  <th className="px-6 py-3">Customer</th>
-                  <th className="px-6 py-3">Phone</th>
-                  <th className="px-6 py-3">Service</th>
-                  <th className="px-6 py-3">Date</th>
-                  <th className="px-6 py-3">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-100">
-                {recentBookings.map((booking) => (
-                  <tr key={booking.id} className="hover:bg-stone-50/60">
-                    <td className="px-6 py-3.5 font-medium text-stone-900">
-                      {booking.customerName}
-                    </td>
-                    <td className="px-6 py-3.5">
-                      <a
-                        href={formatPhoneHref(booking.phoneNumber)}
-                        className="inline-flex items-center gap-1.5 text-stone-700 hover:text-accent"
-                      >
-                        <Phone className="h-3.5 w-3.5 text-accent" />
-                        {booking.phoneNumber}
-                      </a>
-                    </td>
-                    <td className="px-6 py-3.5 text-stone-600">
-                      {booking.service.name}
-                    </td>
-                    <td className="px-6 py-3.5 text-stone-600">
-                      {formatDate(booking.bookingDate)}
-                    </td>
-                    <td className="px-6 py-3.5">
+          <>
+            {/* Mobile Card List */}
+            <div className="divide-y divide-stone-100 md:hidden">
+              {recentBookings.map((booking) => (
+                <div key={booking.id} className="space-y-2.5 p-4">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="truncate font-medium text-stone-900">
+                        {booking.customerName}
+                      </p>
+                      <p className="truncate text-xs text-stone-500">
+                        {booking.service.name}
+                      </p>
+                    </div>
+                    <div className="shrink-0">
                       <StatusBadge status={booking.status} />
-                    </td>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-stone-600">
+                    <a
+                      href={formatPhoneHref(booking.phoneNumber)}
+                      className="inline-flex items-center gap-1.5 text-stone-700 hover:text-accent"
+                    >
+                      <Phone className="h-3.5 w-3.5 shrink-0 text-accent" />
+                      <span>{booking.phoneNumber}</span>
+                    </a>
+                    <span className="inline-flex items-center gap-1.5 text-stone-500">
+                      <Calendar className="h-3.5 w-3.5 shrink-0" />
+                      {formatDate(booking.bookingDate)}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Table */}
+            <div className="hidden overflow-x-auto md:block">
+              <table className="w-full text-left text-sm">
+                <thead className="border-b border-stone-100 bg-stone-50/70 text-xs uppercase tracking-wider text-stone-500">
+                  <tr>
+                    <th className="px-6 py-3">Customer</th>
+                    <th className="px-6 py-3">Phone</th>
+                    <th className="px-6 py-3">Service</th>
+                    <th className="px-6 py-3">Date</th>
+                    <th className="px-6 py-3">Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-stone-100">
+                  {recentBookings.map((booking) => (
+                    <tr key={booking.id} className="hover:bg-stone-50/60">
+                      <td className="px-6 py-3.5 font-medium text-stone-900">
+                        {booking.customerName}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-3.5">
+                        <a
+                          href={formatPhoneHref(booking.phoneNumber)}
+                          className="inline-flex items-center gap-1.5 text-stone-700 hover:text-accent"
+                        >
+                          <Phone className="h-3.5 w-3.5 text-accent" />
+                          {booking.phoneNumber}
+                        </a>
+                      </td>
+                      <td className="px-6 py-3.5 text-stone-600">
+                        {booking.service.name}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-3.5 text-stone-600">
+                        {formatDate(booking.bookingDate)}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-3.5">
+                        <StatusBadge status={booking.status} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </div>
