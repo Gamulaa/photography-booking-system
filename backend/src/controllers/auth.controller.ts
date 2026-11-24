@@ -13,7 +13,7 @@ function getCookieOptions(): CookieOptions {
   return {
     httpOnly: true,
     secure: isSecure,
-    sameSite: "lax",
+    sameSite: isSecure ? "none" : "lax",
     maxAge: SEVEN_DAYS_MS,
     path: "/",
   };
@@ -69,7 +69,7 @@ export function logout(_req: Request, res: Response): void {
   res.clearCookie(AUTH_COOKIE_NAME, {
     httpOnly: true,
     secure: isSecure,
-    sameSite: "lax",
+    sameSite: isSecure ? "none" : "lax",
     path: "/",
   });
 
